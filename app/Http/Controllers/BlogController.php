@@ -2,26 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Wink\Wink;
-use Wink\WinkPage;
 use Wink\WinkPost;
 
 class BlogController extends Controller
 {
     public function index()
     {
-        return view('welcome',[
-            'posts' => WinkPost::latest()->paginate(10),
-            'full' => false,
+        return view('blog', [
+            'blogs' => WinkPost::latest()->paginate(10),
         ]);
     }
 
     public function show($slug)
     {
-        return view('welcome', [
-            'posts' => WinkPost::where('slug',$slug)->get(),
-            'full' => true,
+        return view('blog-post', [
+            'post' => WinkPost::where('slug', $slug)->firstOrFail(),
         ]);
     }
 }

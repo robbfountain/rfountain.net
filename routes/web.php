@@ -13,13 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'HomeController@index')
+Route::get('/', [\App\Http\Controllers\SiteController::class, 'index'])
     ->name('home');
 
-Route::get('blog', 'BlogController@index')
+Route::get('blog', [\App\Http\Controllers\BlogController::class,'index'])
     ->name('blog');
 
-Route::get('blog/{slug}', 'BlogController@show')
+Route::get('blog/{slug}', [\App\Http\Controllers\BlogController::class, 'show'])
     ->name('blog.show');
 
 Route::view('home-lab', 'home-lab')

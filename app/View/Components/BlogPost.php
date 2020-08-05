@@ -6,18 +6,16 @@ use Illuminate\View\Component;
 
 class BlogPost extends Component
 {
-    public $article;
+    public $blog;
 
-    public $full;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($article, $full = false)
+    public function __construct($blog)
     {
-        $this->article = $article;
-        $this->full = $full;
+        $this->blog = $blog;
     }
 
     /**
