@@ -11,16 +11,6 @@
       "region": "us-east-1",
       "runtime": "provided",
       "environment": {
-        "FILESYSTEM_DRIVER": "s3",
-        "APP_ENV": "production",
-        "APP_DEBUG": true,
-        "APP_KEY": "base64:/EStlF5sExBpWdQ3eB/h+F2zzKGDc5bvDzwe0KD8ZPg=",
-        "WINK_DB_CONNECTION": "mysql",
-        "DB_CONNECTION": "mysql",
-        "DB_HOST": "studios-rds.c0rrqknh2fu9.us-east-1.rds.amazonaws.com",
-        "DB_PORT": 3306,
-        "DB_DATABASE": "rfountain",
-        "DB_USERNAME": "admin",
         "DB_PASSWORD": "FIsObRxGD5Vr9Y1lcZDq",
         "AWS_BUCKET": {
           "Ref": "Assets"
@@ -207,7 +197,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/laravel/dev/1596743396217-2020-08-06T19:49:56.217Z/laravel.zip"
+                "S3Key": "serverless/laravel/dev/1596765999620-2020-08-07T02:06:39.620Z/laravel.zip"
               },
               "FunctionName": "laravel-dev-web",
               "Handler": "public/index.php",
@@ -222,16 +212,6 @@
               "Timeout": 28,
               "Environment": {
                 "Variables": {
-                  "FILESYSTEM_DRIVER": "s3",
-                  "APP_ENV": "production",
-                  "APP_DEBUG": true,
-                  "APP_KEY": "base64:/EStlF5sExBpWdQ3eB/h+F2zzKGDc5bvDzwe0KD8ZPg=",
-                  "WINK_DB_CONNECTION": "mysql",
-                  "DB_CONNECTION": "mysql",
-                  "DB_HOST": "studios-rds.c0rrqknh2fu9.us-east-1.rds.amazonaws.com",
-                  "DB_PORT": 3306,
-                  "DB_DATABASE": "rfountain",
-                  "DB_USERNAME": "admin",
                   "DB_PASSWORD": "FIsObRxGD5Vr9Y1lcZDq",
                   "AWS_BUCKET": {
                     "$ref": "$[\"service\"][\"provider\"][\"environment\"][\"AWS_BUCKET\"]"
@@ -247,14 +227,14 @@
               "WebLogGroup"
             ]
           },
-          "WebLambdaVersionFvKcnXdjTv5zu7JnQHuIpw5bG9xRFbLRMTzQHnqNvtg": {
+          "WebLambdaVersionFa0XuBGh91WF0zORtTSghtAEaWPKIcLStjO3rHI": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "WebLambdaFunction"
               },
-              "CodeSha256": "ysC8YxrO7knmkER2OUJ5iRJ5kBUvgdYOiIbwMh+xBOk="
+              "CodeSha256": "M+QCyB5ZP9fw3fWRbyB/45PnqqlIvA7fPDK3zt9qsjA="
             }
           },
           "ArtisanLambdaFunction": {
@@ -264,7 +244,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/laravel/dev/1596743396217-2020-08-06T19:49:56.217Z/laravel.zip"
+                "S3Key": "serverless/laravel/dev/1596765999620-2020-08-07T02:06:39.620Z/laravel.zip"
               },
               "FunctionName": "laravel-dev-artisan",
               "Handler": "artisan",
@@ -279,16 +259,6 @@
               "Timeout": 120,
               "Environment": {
                 "Variables": {
-                  "FILESYSTEM_DRIVER": "s3",
-                  "APP_ENV": "production",
-                  "APP_DEBUG": true,
-                  "APP_KEY": "base64:/EStlF5sExBpWdQ3eB/h+F2zzKGDc5bvDzwe0KD8ZPg=",
-                  "WINK_DB_CONNECTION": "mysql",
-                  "DB_CONNECTION": "mysql",
-                  "DB_HOST": "studios-rds.c0rrqknh2fu9.us-east-1.rds.amazonaws.com",
-                  "DB_PORT": 3306,
-                  "DB_DATABASE": "rfountain",
-                  "DB_USERNAME": "admin",
                   "DB_PASSWORD": "FIsObRxGD5Vr9Y1lcZDq",
                   "AWS_BUCKET": {
                     "$ref": "$[\"service\"][\"provider\"][\"environment\"][\"AWS_BUCKET\"]"
@@ -305,14 +275,14 @@
               "ArtisanLogGroup"
             ]
           },
-          "ArtisanLambdaVersionyG5JsdM66M4yIkYgT4rl0KuH6KlNQe8wueetEQqfU": {
+          "ArtisanLambdaVersionz9RAQWp2h9Bxixt8fTsVvODNpqmmVcnLJFp3sXB7U": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "ArtisanLambdaFunction"
               },
-              "CodeSha256": "ysC8YxrO7knmkER2OUJ5iRJ5kBUvgdYOiIbwMh+xBOk="
+              "CodeSha256": "M+QCyB5ZP9fw3fWRbyB/45PnqqlIvA7fPDK3zt9qsjA="
             }
           },
           "ApiGatewayRestApi": {
@@ -431,7 +401,7 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayDeployment1596743384553": {
+          "ApiGatewayDeployment1596765977785": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -531,13 +501,13 @@
           "WebLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "WebLambdaVersionFvKcnXdjTv5zu7JnQHuIpw5bG9xRFbLRMTzQHnqNvtg"
+              "Ref": "WebLambdaVersionFa0XuBGh91WF0zORtTSghtAEaWPKIcLStjO3rHI"
             }
           },
           "ArtisanLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "ArtisanLambdaVersionyG5JsdM66M4yIkYgT4rl0KuH6KlNQe8wueetEQqfU"
+              "Ref": "ArtisanLambdaVersionz9RAQWp2h9Bxixt8fTsVvODNpqmmVcnLJFp3sXB7U"
             }
           },
           "ServiceEndpoint": {
@@ -658,7 +628,7 @@
         "memory": 1024,
         "runtime": "provided",
         "vpc": {},
-        "versionLogicalId": "WebLambdaVersionFvKcnXdjTv5zu7JnQHuIpw5bG9xRFbLRMTzQHnqNvtg"
+        "versionLogicalId": "WebLambdaVersionFa0XuBGh91WF0zORtTSghtAEaWPKIcLStjO3rHI"
       },
       "artisan": {
         "handler": "artisan",
@@ -672,7 +642,7 @@
         "memory": 1024,
         "runtime": "provided",
         "vpc": {},
-        "versionLogicalId": "ArtisanLambdaVersionyG5JsdM66M4yIkYgT4rl0KuH6KlNQe8wueetEQqfU"
+        "versionLogicalId": "ArtisanLambdaVersionz9RAQWp2h9Bxixt8fTsVvODNpqmmVcnLJFp3sXB7U"
       }
     },
     "resources": {
@@ -737,13 +707,13 @@
         "exclude": [
           "node_modules/**",
           "public/storage",
-          "resources/js/**",
-          "resources/sass/**",
+          "public/js",
+          "public/css",
           "storage/**",
           "tests/**"
         ],
         "artifact": "/Users/robb/Code/rfountain/.serverless/laravel.zip",
-        "artifactDirectoryName": "serverless/laravel/dev/1596743396217-2020-08-06T19:49:56.217Z"
+        "artifactDirectoryName": "serverless/laravel/dev/1596765999620-2020-08-07T02:06:39.620Z"
       },
       "functions": {
         "$ref": "$[\"service\"][\"functions\"]"
@@ -760,7 +730,7 @@
     "artifact": "/Users/robb/Code/rfountain/.serverless/laravel.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/laravel/dev/1596743396217-2020-08-06T19:49:56.217Z",
+    "artifactDirectoryName": "serverless/laravel/dev/1596765999620-2020-08-07T02:06:39.620Z",
     "artifact": "laravel.zip"
   }
 }
