@@ -10,7 +10,7 @@
         @endif
 
         <!-- Favicon -->
-		<link rel="shortcut icon" href="{{ url(asset('favicon.ico')) }}">
+		<link rel="shortcut icon" href="{{ asset('favicon.ico')}}">
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
@@ -19,7 +19,7 @@
         <script src="https://kit.fontawesome.com/6f474d04f0.js" crossorigin="anonymous"></script>
 
         <!-- Styles -->
-        <link rel="stylesheet" href="{{ url(mix('css/app.css')) }}">
+        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
         @livewireStyles
 
         <!-- CSRF Token -->
@@ -82,11 +82,6 @@
                 </div>
             </div>
 
-            <!--
-              Mobile menu, toggle classes based on menu state.
-
-              Menu open: "block", Menu closed: "hidden"
-            -->
             <div x-show="mobileMenu" class="block lg:hidden">
                 <div class="pt-2 pb-3">
                     <a href="{{route('home-lab')}}" class="block pl-3 pr-4 py-2 border-l-4 border-indigo-500 text-base font-medium text-indigo-700 bg-indigo-50 focus:outline-none focus:text-indigo-800 focus:bg-indigo-100 focus:border-indigo-700 transition duration-150 ease-in-out">Dashboard</a>
@@ -97,7 +92,7 @@
 
         @yield('body')
 
-        <script src="{{ url(mix('js/app.js')) }}"></script>
+        <script src="{{ asset('js/app.js') }}"></script>
         @livewireScripts
     </body>
 </html>

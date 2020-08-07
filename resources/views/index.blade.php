@@ -2,8 +2,9 @@
 
 @section('content')
     <section class="lg:pl-32 mt-12">
-        <!-- Intro -->
-        <x-blog-post :blog="$intro" />
+        @if($intro)
+            <x-blog-post :blog="$intro"/>
+        @endif
     </section>
 @endsection
 
