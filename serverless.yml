@@ -1,4 +1,4 @@
-service: laravel
+service: rfountain-net
 
 provider:
   name: aws
@@ -8,10 +8,14 @@ provider:
   stage: dev
   runtime: provided
   environment:
+    DB_HOST: 'studios-rds.c0rrqknh2fu9.us-east-1.rds.amazonaws.com'
+    DB_USERNAME: admin
     DB_PASSWORD: ${ssm:rfountain_db_password}
     AWS_BUCKET: # environment variable for Laravel
-      Ref: Assets
-    ASSET_URL: https://rfountain.net.s3.amazonaws.com
+      Ref: Storage
+    ASSET_URL: https://assets.rfountain.net
+    CACHE_DRIVER: dynamodb
+    DYNAMODB_CACHE_TABLE: rfountain_cache
 
   iamRoleStatements:
     # Allow Lambda to read and write files in the S3 buckets
@@ -23,21 +27,6 @@ provider:
 
 resources:
   Resources:
-    Assets:
-      Type: AWS::S3::Bucket
-      Properties:
-        BucketName: rfountain.net
-    AssetsBucketPolicy:
-      Type: AWS::S3::BucketPolicy
-      Properties:
-        Bucket: !Ref Assets # References the bucket we defined above
-        PolicyDocument:
-          Statement:
-            - Effect: Allow
-              Principal: '*' # everyone
-              Action: 's3:GetObject' # to read
-              Resource: !Join ['/', [!GetAtt Assets.Arn, '*']] # things in the bucket
-              # alternatively you can write out Resource: 'arn:aws:s3:::<bucket-name>/*'
     Storage:
       Type: AWS::S3::Bucket
 
@@ -48,8 +37,8 @@ package:
     - public/storage
     - public/js
     - public/css
-#    - resources/js/**
-#    - resources/sass/**
+    - resources/js/**
+    - resources/sass/**
     - storage/**
     - tests/**
 

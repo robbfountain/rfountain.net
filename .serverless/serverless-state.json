@@ -1,8 +1,8 @@
 {
   "service": {
-    "service": "laravel",
+    "service": "rfountain-net",
     "serviceObject": {
-      "name": "laravel"
+      "name": "rfountain-net"
     },
     "provider": {
       "stage": "dev",
@@ -11,11 +11,15 @@
       "region": "us-east-1",
       "runtime": "provided",
       "environment": {
+        "DB_HOST": "studios-rds.c0rrqknh2fu9.us-east-1.rds.amazonaws.com",
+        "DB_USERNAME": "admin",
         "DB_PASSWORD": "FIsObRxGD5Vr9Y1lcZDq",
         "AWS_BUCKET": {
-          "Ref": "Assets"
+          "Ref": "Storage"
         },
-        "ASSET_URL": "https://rfountain.net.s3.amazonaws.com"
+        "ASSET_URL": "https://assets.rfountain.net",
+        "CACHE_DRIVER": "dynamodb",
+        "DYNAMODB_CACHE_TABLE": "rfountain_cache"
       },
       "iamRoleStatements": [
         {
@@ -101,13 +105,13 @@
           "WebLogGroup": {
             "Type": "AWS::Logs::LogGroup",
             "Properties": {
-              "LogGroupName": "/aws/lambda/laravel-dev-web"
+              "LogGroupName": "/aws/lambda/rfountain-net-dev-web"
             }
           },
           "ArtisanLogGroup": {
             "Type": "AWS::Logs::LogGroup",
             "Properties": {
-              "LogGroupName": "/aws/lambda/laravel-dev-artisan"
+              "LogGroupName": "/aws/lambda/rfountain-net-dev-artisan"
             }
           },
           "IamRoleLambdaExecution": {
@@ -135,7 +139,7 @@
                     "Fn::Join": [
                       "-",
                       [
-                        "laravel",
+                        "rfountain-net",
                         "dev",
                         "lambda"
                       ]
@@ -152,7 +156,7 @@
                         ],
                         "Resource": [
                           {
-                            "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/laravel-dev*:*"
+                            "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/rfountain-net-dev*:*"
                           }
                         ]
                       },
@@ -163,7 +167,7 @@
                         ],
                         "Resource": [
                           {
-                            "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/laravel-dev*:*:*"
+                            "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/rfountain-net-dev*:*:*"
                           }
                         ]
                       },
@@ -179,7 +183,7 @@
                 "Fn::Join": [
                   "-",
                   [
-                    "laravel",
+                    "rfountain-net",
                     "dev",
                     {
                       "Ref": "AWS::Region"
@@ -197,9 +201,9 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/laravel/dev/1596765999620-2020-08-07T02:06:39.620Z/laravel.zip"
+                "S3Key": "serverless/rfountain-net/dev/1596828387874-2020-08-07T19:26:27.874Z/rfountain-net.zip"
               },
-              "FunctionName": "laravel-dev-web",
+              "FunctionName": "rfountain-net-dev-web",
               "Handler": "public/index.php",
               "MemorySize": 1024,
               "Role": {
@@ -212,11 +216,15 @@
               "Timeout": 28,
               "Environment": {
                 "Variables": {
+                  "DB_HOST": "studios-rds.c0rrqknh2fu9.us-east-1.rds.amazonaws.com",
+                  "DB_USERNAME": "admin",
                   "DB_PASSWORD": "FIsObRxGD5Vr9Y1lcZDq",
                   "AWS_BUCKET": {
                     "$ref": "$[\"service\"][\"provider\"][\"environment\"][\"AWS_BUCKET\"]"
                   },
-                  "ASSET_URL": "https://rfountain.net.s3.amazonaws.com"
+                  "ASSET_URL": "https://assets.rfountain.net",
+                  "CACHE_DRIVER": "dynamodb",
+                  "DYNAMODB_CACHE_TABLE": "rfountain_cache"
                 }
               },
               "Layers": [
@@ -227,14 +235,14 @@
               "WebLogGroup"
             ]
           },
-          "WebLambdaVersionFa0XuBGh91WF0zORtTSghtAEaWPKIcLStjO3rHI": {
+          "WebLambdaVersioncWvN35e8baX7fG0o4HDVwDk4IjuOS2p4KmU0K1wtE": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "WebLambdaFunction"
               },
-              "CodeSha256": "M+QCyB5ZP9fw3fWRbyB/45PnqqlIvA7fPDK3zt9qsjA="
+              "CodeSha256": "JnbdZHU5++cZk06+/Lj7Ixv1WEKYf1OnN8rT4820x30="
             }
           },
           "ArtisanLambdaFunction": {
@@ -244,9 +252,9 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/laravel/dev/1596765999620-2020-08-07T02:06:39.620Z/laravel.zip"
+                "S3Key": "serverless/rfountain-net/dev/1596828387874-2020-08-07T19:26:27.874Z/rfountain-net.zip"
               },
-              "FunctionName": "laravel-dev-artisan",
+              "FunctionName": "rfountain-net-dev-artisan",
               "Handler": "artisan",
               "MemorySize": 1024,
               "Role": {
@@ -259,11 +267,15 @@
               "Timeout": 120,
               "Environment": {
                 "Variables": {
+                  "DB_HOST": "studios-rds.c0rrqknh2fu9.us-east-1.rds.amazonaws.com",
+                  "DB_USERNAME": "admin",
                   "DB_PASSWORD": "FIsObRxGD5Vr9Y1lcZDq",
                   "AWS_BUCKET": {
                     "$ref": "$[\"service\"][\"provider\"][\"environment\"][\"AWS_BUCKET\"]"
                   },
-                  "ASSET_URL": "https://rfountain.net.s3.amazonaws.com"
+                  "ASSET_URL": "https://assets.rfountain.net",
+                  "CACHE_DRIVER": "dynamodb",
+                  "DYNAMODB_CACHE_TABLE": "rfountain_cache"
                 }
               },
               "Layers": [
@@ -275,20 +287,20 @@
               "ArtisanLogGroup"
             ]
           },
-          "ArtisanLambdaVersionz9RAQWp2h9Bxixt8fTsVvODNpqmmVcnLJFp3sXB7U": {
+          "ArtisanLambdaVersionhVGHFeALrtvtI7oFHT4l9Y5Npl7fwqrRqiLbbnxz8": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "ArtisanLambdaFunction"
               },
-              "CodeSha256": "M+QCyB5ZP9fw3fWRbyB/45PnqqlIvA7fPDK3zt9qsjA="
+              "CodeSha256": "JnbdZHU5++cZk06+/Lj7Ixv1WEKYf1OnN8rT4820x30="
             }
           },
           "ApiGatewayRestApi": {
             "Type": "AWS::ApiGateway::RestApi",
             "Properties": {
-              "Name": "dev-laravel",
+              "Name": "dev-rfountain-net",
               "EndpointConfiguration": {
                 "Types": [
                   "EDGE"
@@ -401,7 +413,7 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayDeployment1596765977785": {
+          "ApiGatewayDeployment1596828378749": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -451,43 +463,6 @@
               }
             }
           },
-          "Assets": {
-            "Type": "AWS::S3::Bucket",
-            "Properties": {
-              "BucketName": "rfountain.net"
-            }
-          },
-          "AssetsBucketPolicy": {
-            "Type": "AWS::S3::BucketPolicy",
-            "Properties": {
-              "Bucket": {
-                "Ref": "Assets"
-              },
-              "PolicyDocument": {
-                "Statement": [
-                  {
-                    "Effect": "Allow",
-                    "Principal": "*",
-                    "Action": "s3:GetObject",
-                    "Resource": {
-                      "Fn::Join": [
-                        "/",
-                        [
-                          {
-                            "Fn::GetAtt": [
-                              "Assets",
-                              "Arn"
-                            ]
-                          },
-                          "*"
-                        ]
-                      ]
-                    }
-                  }
-                ]
-              }
-            }
-          },
           "Storage": {
             "Type": "AWS::S3::Bucket"
           }
@@ -501,13 +476,13 @@
           "WebLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "WebLambdaVersionFa0XuBGh91WF0zORtTSghtAEaWPKIcLStjO3rHI"
+              "Ref": "WebLambdaVersioncWvN35e8baX7fG0o4HDVwDk4IjuOS2p4KmU0K1wtE"
             }
           },
           "ArtisanLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "ArtisanLambdaVersionz9RAQWp2h9Bxixt8fTsVvODNpqmmVcnLJFp3sXB7U"
+              "Ref": "ArtisanLambdaVersionhVGHFeALrtvtI7oFHT4l9Y5Npl7fwqrRqiLbbnxz8"
             }
           },
           "ServiceEndpoint": {
@@ -623,12 +598,12 @@
             "http": "ANY /{proxy+}"
           }
         ],
-        "name": "laravel-dev-web",
+        "name": "rfountain-net-dev-web",
         "package": {},
         "memory": 1024,
         "runtime": "provided",
         "vpc": {},
-        "versionLogicalId": "WebLambdaVersionFa0XuBGh91WF0zORtTSghtAEaWPKIcLStjO3rHI"
+        "versionLogicalId": "WebLambdaVersioncWvN35e8baX7fG0o4HDVwDk4IjuOS2p4KmU0K1wtE"
       },
       "artisan": {
         "handler": "artisan",
@@ -637,53 +612,16 @@
           "$ref": "$[\"service\"][\"provider\"][\"compiledCloudFormationTemplate\"][\"Resources\"][\"ArtisanLambdaFunction\"][\"Properties\"][\"Layers\"]"
         },
         "events": [],
-        "name": "laravel-dev-artisan",
+        "name": "rfountain-net-dev-artisan",
         "package": {},
         "memory": 1024,
         "runtime": "provided",
         "vpc": {},
-        "versionLogicalId": "ArtisanLambdaVersionz9RAQWp2h9Bxixt8fTsVvODNpqmmVcnLJFp3sXB7U"
+        "versionLogicalId": "ArtisanLambdaVersionhVGHFeALrtvtI7oFHT4l9Y5Npl7fwqrRqiLbbnxz8"
       }
     },
     "resources": {
       "Resources": {
-        "Assets": {
-          "Type": "AWS::S3::Bucket",
-          "Properties": {
-            "BucketName": "rfountain.net"
-          }
-        },
-        "AssetsBucketPolicy": {
-          "Type": "AWS::S3::BucketPolicy",
-          "Properties": {
-            "Bucket": {
-              "Ref": "Assets"
-            },
-            "PolicyDocument": {
-              "Statement": [
-                {
-                  "Effect": "Allow",
-                  "Principal": "*",
-                  "Action": "s3:GetObject",
-                  "Resource": {
-                    "Fn::Join": [
-                      "/",
-                      [
-                        {
-                          "Fn::GetAtt": [
-                            "Assets",
-                            "Arn"
-                          ]
-                        },
-                        "*"
-                      ]
-                    ]
-                  }
-                }
-              ]
-            }
-          }
-        },
         "Storage": {
           "Type": "AWS::S3::Bucket"
         }
@@ -709,11 +647,13 @@
           "public/storage",
           "public/js",
           "public/css",
+          "resources/js/**",
+          "resources/sass/**",
           "storage/**",
           "tests/**"
         ],
-        "artifact": "/Users/robb/Code/rfountain/.serverless/laravel.zip",
-        "artifactDirectoryName": "serverless/laravel/dev/1596765999620-2020-08-07T02:06:39.620Z"
+        "artifact": "/Users/robb/Code/rfountain/.serverless/rfountain-net.zip",
+        "artifactDirectoryName": "serverless/rfountain-net/dev/1596828387874-2020-08-07T19:26:27.874Z"
       },
       "functions": {
         "$ref": "$[\"service\"][\"functions\"]"
@@ -727,10 +667,10 @@
       "configValidationMode": "warn"
     },
     "isDashboardMonitoringPreconfigured": false,
-    "artifact": "/Users/robb/Code/rfountain/.serverless/laravel.zip"
+    "artifact": "/Users/robb/Code/rfountain/.serverless/rfountain-net.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/laravel/dev/1596765999620-2020-08-07T02:06:39.620Z",
-    "artifact": "laravel.zip"
+    "artifactDirectoryName": "serverless/rfountain-net/dev/1596828387874-2020-08-07T19:26:27.874Z",
+    "artifact": "rfountain-net.zip"
   }
 }
