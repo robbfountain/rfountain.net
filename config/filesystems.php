@@ -62,8 +62,9 @@ return [
             'token' => env('AWS_SESSION_TOKEN'),
             'region' => env('AWS_DEFAULT_REGION'),
             'bucket' => env('AWS_BUCKET'),
-            'url' => env('AWS_URL'),
-            'endpoint' => env('AWS_ENDPOINT'),
+            'options' => [
+                'CacheControl' => 'public, max-age=315360000'
+            ],
         ],
 
     ],

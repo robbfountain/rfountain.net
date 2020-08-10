@@ -1,4 +1,4 @@
-<article class="prose lg:prose-2xl">
+<article class="p-4 lg:pl-32 prose lg:prose-2xl">
     <h2>
         {{$blog->title}}
     </h2>

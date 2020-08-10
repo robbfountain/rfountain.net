@@ -19,7 +19,7 @@ class BlogController extends Controller
     public function show($slug)
     {
         return view('blog-post', [
-            'post' => WinkPost::live()
+            'blog' => WinkPost::live()
                 ->published()
                 ->where('slug', $slug)
                 ->firstOrFail(),
