@@ -9,14 +9,20 @@ class BlogController extends Controller
     public function index()
     {
         return view('blog', [
-            'blogs' => WinkPost::latest()->paginate(10),
+            'blogs' => WinkPost::published()
+                ->live()
+                ->latest()
+                ->paginate(10),
         ]);
     }
 
     public function show($slug)
     {
         return view('blog-post', [
-            'post' => WinkPost::where('slug', $slug)->firstOrFail(),
+            'post' => WinkPost::live()
+                ->published()
+                ->where('slug', $slug)
+                ->firstOrFail(),
         ]);
     }
 }

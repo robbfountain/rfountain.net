@@ -18,6 +18,7 @@
           "Ref": "Storage"
         },
         "ASSET_URL": "https://assets.rfountain.net",
+        "MIX_ASSET_URL": "https://assets.rfountain.net",
         "CACHE_DRIVER": "dynamodb",
         "DYNAMODB_CACHE_TABLE": "rfountain_cache"
       },
@@ -201,7 +202,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/rfountain-net/dev/1596828387874-2020-08-07T19:26:27.874Z/rfountain-net.zip"
+                "S3Key": "serverless/rfountain-net/dev/1596912122721-2020-08-08T18:42:02.721Z/rfountain-net.zip"
               },
               "FunctionName": "rfountain-net-dev-web",
               "Handler": "public/index.php",
@@ -223,6 +224,7 @@
                     "$ref": "$[\"service\"][\"provider\"][\"environment\"][\"AWS_BUCKET\"]"
                   },
                   "ASSET_URL": "https://assets.rfountain.net",
+                  "MIX_ASSET_URL": "https://assets.rfountain.net",
                   "CACHE_DRIVER": "dynamodb",
                   "DYNAMODB_CACHE_TABLE": "rfountain_cache"
                 }
@@ -235,14 +237,14 @@
               "WebLogGroup"
             ]
           },
-          "WebLambdaVersioncWvN35e8baX7fG0o4HDVwDk4IjuOS2p4KmU0K1wtE": {
+          "WebLambdaVersionciekqZBE3bnbdYzZcghWQz1ouUg2nrWh8wkIUA5X6Y": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "WebLambdaFunction"
               },
-              "CodeSha256": "JnbdZHU5++cZk06+/Lj7Ixv1WEKYf1OnN8rT4820x30="
+              "CodeSha256": "tuy2Y5SOaTow7qlvTgxsi2vJLZ+Z5Vhh7pcnWR+U3sw="
             }
           },
           "ArtisanLambdaFunction": {
@@ -252,7 +254,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/rfountain-net/dev/1596828387874-2020-08-07T19:26:27.874Z/rfountain-net.zip"
+                "S3Key": "serverless/rfountain-net/dev/1596912122721-2020-08-08T18:42:02.721Z/rfountain-net.zip"
               },
               "FunctionName": "rfountain-net-dev-artisan",
               "Handler": "artisan",
@@ -274,6 +276,7 @@
                     "$ref": "$[\"service\"][\"provider\"][\"environment\"][\"AWS_BUCKET\"]"
                   },
                   "ASSET_URL": "https://assets.rfountain.net",
+                  "MIX_ASSET_URL": "https://assets.rfountain.net",
                   "CACHE_DRIVER": "dynamodb",
                   "DYNAMODB_CACHE_TABLE": "rfountain_cache"
                 }
@@ -287,14 +290,14 @@
               "ArtisanLogGroup"
             ]
           },
-          "ArtisanLambdaVersionhVGHFeALrtvtI7oFHT4l9Y5Npl7fwqrRqiLbbnxz8": {
+          "ArtisanLambdaVersionXEzDwknE1BBn4ElfJCafhKn1o8bYUMFs28r6LIPYlvY": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "ArtisanLambdaFunction"
               },
-              "CodeSha256": "JnbdZHU5++cZk06+/Lj7Ixv1WEKYf1OnN8rT4820x30="
+              "CodeSha256": "tuy2Y5SOaTow7qlvTgxsi2vJLZ+Z5Vhh7pcnWR+U3sw="
             }
           },
           "ApiGatewayRestApi": {
@@ -413,7 +416,7 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayDeployment1596828378749": {
+          "ApiGatewayDeployment1596912102484": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -476,13 +479,13 @@
           "WebLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "WebLambdaVersioncWvN35e8baX7fG0o4HDVwDk4IjuOS2p4KmU0K1wtE"
+              "Ref": "WebLambdaVersionciekqZBE3bnbdYzZcghWQz1ouUg2nrWh8wkIUA5X6Y"
             }
           },
           "ArtisanLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "ArtisanLambdaVersionhVGHFeALrtvtI7oFHT4l9Y5Npl7fwqrRqiLbbnxz8"
+              "Ref": "ArtisanLambdaVersionXEzDwknE1BBn4ElfJCafhKn1o8bYUMFs28r6LIPYlvY"
             }
           },
           "ServiceEndpoint": {
@@ -603,7 +606,7 @@
         "memory": 1024,
         "runtime": "provided",
         "vpc": {},
-        "versionLogicalId": "WebLambdaVersioncWvN35e8baX7fG0o4HDVwDk4IjuOS2p4KmU0K1wtE"
+        "versionLogicalId": "WebLambdaVersionciekqZBE3bnbdYzZcghWQz1ouUg2nrWh8wkIUA5X6Y"
       },
       "artisan": {
         "handler": "artisan",
@@ -617,7 +620,7 @@
         "memory": 1024,
         "runtime": "provided",
         "vpc": {},
-        "versionLogicalId": "ArtisanLambdaVersionhVGHFeALrtvtI7oFHT4l9Y5Npl7fwqrRqiLbbnxz8"
+        "versionLogicalId": "ArtisanLambdaVersionXEzDwknE1BBn4ElfJCafhKn1o8bYUMFs28r6LIPYlvY"
       }
     },
     "resources": {
@@ -653,7 +656,7 @@
           "tests/**"
         ],
         "artifact": "/Users/robb/Code/rfountain/.serverless/rfountain-net.zip",
-        "artifactDirectoryName": "serverless/rfountain-net/dev/1596828387874-2020-08-07T19:26:27.874Z"
+        "artifactDirectoryName": "serverless/rfountain-net/dev/1596912122721-2020-08-08T18:42:02.721Z"
       },
       "functions": {
         "$ref": "$[\"service\"][\"functions\"]"
@@ -670,7 +673,7 @@
     "artifact": "/Users/robb/Code/rfountain/.serverless/rfountain-net.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/rfountain-net/dev/1596828387874-2020-08-07T19:26:27.874Z",
+    "artifactDirectoryName": "serverless/rfountain-net/dev/1596912122721-2020-08-08T18:42:02.721Z",
     "artifact": "rfountain-net.zip"
   }
 }
