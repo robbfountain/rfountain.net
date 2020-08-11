@@ -1,10 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <section class="p-2 lg:pl-32 mt-12">
-        @if($intro)
+    <section class="mt-8 lg:container">
             <x-blog-post :blog="$intro"/>
-        @endif
     </section>
 @endsection
 
