@@ -26,35 +26,27 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
     </head>
 
-    <body class="antialiased bg-white">
+    <body class="antialiased bg-white dark:bg-gray-900">
 
-        <nav class="bg-white shadow" x-data="{mobileMenu : false}">
+        <nav class="bg-white dark:bg-gray-900 shadow" x-data="{mobileMenu : false}">
             <div class="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
                 <div class="flex justify-between h-16">
                     <div class="flex px-2 lg:px-0">
                         <div class="flex-shrink-0 flex items-center">
                             <img class="h-12 w-12 rounded-full" src="https://avatars1.githubusercontent.com/u/3590383?v=4"
                                  alt="Robb Fountain">
+                            <span class="ml-3 text-gray-500 dark:text-gray-100 text-sm font-medium leading-5">
+                                Robb Fountain
+                            </span>
                         </div>
                         <div class="hidden lg:ml-6 lg:flex">
                             <x-nav-link route="home">Home</x-nav-link>
                             <x-nav-link route="blog">Blog</x-nav-link>
                             <x-nav-link route="home-lab">Home Lab</x-nav-link>
-
                         </div>
                     </div>
-                    <div class="flex-1 flex items-center justify-center px-2 lg:ml-6 lg:justify-end">
-                        <div class="max-w-lg w-full lg:max-w-xs">
-                            <label for="search" class="sr-only">Search</label>
-                            <div class="relative">
-                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                    <svg class="h-5 w-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
-                                    </svg>
-                                </div>
-                                <input id="search" class="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:border-blue-300 focus:shadow-outline-blue sm:text-sm transition duration-150 ease-in-out" placeholder="Search" type="search">
-                            </div>
-                        </div>
+                    <div class="relative flex-1 flex items-center justify-center px-2 lg:ml-6 lg:justify-end">
+                        <livewire:search-blogs />
                     </div>
                     <div class="flex items-center lg:hidden">
                         <!-- Mobile menu button -->

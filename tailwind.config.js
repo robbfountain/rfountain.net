@@ -6,6 +6,10 @@ module.exports = {
             fontFamily: {
                 sans: ['Inter var', ...defaultTheme.fontFamily.sans],
             },
+            screens: {
+                light: {raw: "(prefers-color-scheme: light)"},
+                dark: {raw: "(prefers-color-scheme: dark)"}
+            }
         },
     },
     variants: {},
@@ -29,5 +33,19 @@ module.exports = {
     plugins: [
         require('@tailwindcss/ui'),
         require('@tailwindcss/typography'),
+        function ({addBase, config}) {
+            addBase({
+                body: {
+                    color: config("theme.colors.black"),
+                    backgroundColor: config("theme.colors.white")
+                },
+                "@screen dark": {
+                    body: {
+                        color: config("theme.colors.gray.200"),
+                        backgroundColor: config("theme.colors.gray.800")
+                    }
+                }
+            });
+        }
     ],
 };

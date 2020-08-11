@@ -16,14 +16,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [\App\Http\Controllers\SiteController::class, 'index'])
     ->name('home');
 
-Route::get('blog', [\App\Http\Controllers\BlogController::class,'index'])
+Route::get('blog', [\App\Http\Controllers\BlogController::class, 'index'])
     ->name('blog');
 
 Route::get('blog/{slug}', [\App\Http\Controllers\BlogController::class, 'show'])
     ->name('blog.show');
 
-Route::view('home-lab', 'home-lab')
-    ->name('home-lab');
+Route::view('home-lab', 'home-lab', [
+    'blog' => \Wink\WinkPage::where('slug', 'home-lab')->first(),
+])->name('home-lab');
 
 Route::layout('layouts.auth')->group(function () {
     Route::middleware('guest')->group(function () {

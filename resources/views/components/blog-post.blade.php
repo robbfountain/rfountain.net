@@ -1,21 +1,35 @@
-<article class="mt-12 lg:container mx-auto prose lg:prose-2xl">
-    <h2>
+<article class="mt-12 container mx-auto prose lg:prose-2xl dark:text-gray-100">
+    <div class="text-5xl font-bold leading-tight dark:text-gray-100">
         {{$blog->title}}
-    </h2>
-
+    </div>
+    @if($blog->publish_date)
+        <div class="text-gray-600 dark:text-gray-100 text-sm">
+            <span>
+                Published {{$blog->publish_date->format('M d, Y')}}
+            </span>
+            <span class="mx-2">
+                |
+            </span>
+            <span>
+                {{\App\Classes\Helper::minutesToRead($blog->body)}} minute read
+            </span>
+        </div>
+    @endif
     {!! $blog->content !!}
 </article>
 
-{{--<div class="mt-6 lg:container mx-auto">--}}
-{{--    <div class="flex justify-start bg-orange-300 max-w-2xl p-6">--}}
-{{--        <div class="mr-6 w-1/5">--}}
-{{--            <img src="{{$blog->author->avatar}}" alt="">--}}
-{{--        </div>--}}
-{{--        <div class="ml-8">--}}
-{{--            <p class="text-2xl">By {{$blog->author->name}}</p>--}}
-{{--            <div class="text-xl">--}}
-{{--                {!! $blog->author->bio !!}--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--</div>--}}
+@if($blog->author)
+    <div class="prose prose-lg pb-12 max-w-4xl container mx-auto">
+        <div class="bg-gray-50 rounded-md p-2 flex border border-gray-200 ">
+            <div class="mr-6 w-1/5 text-center">
+                <img src="{{$blog->author->avatar}}" class="h-32 w-32 rounded-full p-2 bg-white" alt="">
+            </div>
+            <div class="flex-1 pt-3">
+                <p class="text-lg mt-4 font-semibold underline">By {{$blog->author->name}}</p>
+                <div class="text-lg -mt-4">
+                    {!! $blog->author->bio !!}
+                </div>
+            </div>
+        </div>
+    </div>
+@endif

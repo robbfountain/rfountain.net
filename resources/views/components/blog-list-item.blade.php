@@ -1,14 +1,14 @@
 @props(['blog'])
 
-<div class="lg:-m-0 mb-8">
+<div class="lg:-m-0 mb-8 prose lg:prose-lg">
     <a class="hover:underline transition ease-in-out duration-300" href="{{route('blog.show',$blog->slug)}}">
-        <h3 class="text-gray-900 text-xl font-bold">{{$blog->title}}</h3>
+        <h3 class="text-gray-900 font-bold">{{$blog->title}}</h3>
     </a>
     <div class="text-gray-600">
         {{$blog->publish_date->format('M d, Y')}}
     </div>
 
-    <div class="mt-3 tracking-wide">
+    <div class="mt-3 ">
         {!! $blog->excerpt !!}
     </div>
 
