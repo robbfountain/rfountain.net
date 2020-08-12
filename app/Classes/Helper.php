@@ -7,7 +7,7 @@ namespace App\Classes;
 class Helper
 {
     /**
-     *  Default words per minute read
+     *  Default words per minute value
      */
     const WORDS_PER_MINUTE = 200;
 

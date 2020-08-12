@@ -88,17 +88,6 @@ module.exports = {
                     body: {
                         color: config("theme.colors.gray.200"),
                         backgroundColor: config("theme.colors.gray.800")
-                    },
-                    h2: {
-                        color: config("theme.colors.gray.200")
-                    },
-                    ".prose": {
-                        h2: {
-                            color: config("theme.colors.gray.200")
-                        },
-                        h3: {
-                            color: config("theme.colors.gray.200")
-                        }
                     }
                 }
             });

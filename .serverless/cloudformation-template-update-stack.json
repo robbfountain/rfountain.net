@@ -172,7 +172,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/rfountain-net/dev/1597235523072-2020-08-12T12:32:03.072Z/rfountain-net.zip"
+          "S3Key": "serverless/rfountain-net/dev/1597258360350-2020-08-12T18:52:40.350Z/rfountain-net.zip"
         },
         "FunctionName": "rfountain-net-dev-web",
         "Handler": "public/index.php",
@@ -187,6 +187,7 @@
         "Timeout": 28,
         "Environment": {
           "Variables": {
+            "APP_DEBUG": false,
             "DB_HOST": "studios-rds.c0rrqknh2fu9.us-east-1.rds.amazonaws.com",
             "DB_USERNAME": "admin",
             "DB_PASSWORD": "FIsObRxGD5Vr9Y1lcZDq",
@@ -208,14 +209,14 @@
         "WebLogGroup"
       ]
     },
-    "WebLambdaVersionQ80VDGS2qA26qabSLEwkjkkVgYQL98um0ICDzS4": {
+    "WebLambdaVersionK7bAZfTuYkZrAopXw6aGTdQVlstcnOaS08Pev07g6U": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "WebLambdaFunction"
         },
-        "CodeSha256": "N7RJ9PSc2XB9XTRqhoYd/0oA0jmnMDeGkm5ymt0/D4E="
+        "CodeSha256": "fGzSjfzcYUBkiNnLd6JglzqPd0PAB3EZHArtghgDpCk="
       }
     },
     "ArtisanLambdaFunction": {
@@ -225,7 +226,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/rfountain-net/dev/1597235523072-2020-08-12T12:32:03.072Z/rfountain-net.zip"
+          "S3Key": "serverless/rfountain-net/dev/1597258360350-2020-08-12T18:52:40.350Z/rfountain-net.zip"
         },
         "FunctionName": "rfountain-net-dev-artisan",
         "Handler": "artisan",
@@ -240,6 +241,7 @@
         "Timeout": 120,
         "Environment": {
           "Variables": {
+            "APP_DEBUG": false,
             "DB_HOST": "studios-rds.c0rrqknh2fu9.us-east-1.rds.amazonaws.com",
             "DB_USERNAME": "admin",
             "DB_PASSWORD": "FIsObRxGD5Vr9Y1lcZDq",
@@ -262,14 +264,14 @@
         "ArtisanLogGroup"
       ]
     },
-    "ArtisanLambdaVersionYgP5C57WDAiK7bu9IRHAm4JpolMwarZJWWR0dgcWQ": {
+    "ArtisanLambdaVersion6alKt4cFzXL9kxcYCzJadX6FpwcvByFocWiaRM7hXwc": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "ArtisanLambdaFunction"
         },
-        "CodeSha256": "N7RJ9PSc2XB9XTRqhoYd/0oA0jmnMDeGkm5ymt0/D4E="
+        "CodeSha256": "fGzSjfzcYUBkiNnLd6JglzqPd0PAB3EZHArtghgDpCk="
       }
     },
     "ApiGatewayRestApi": {
@@ -388,7 +390,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayDeployment1597235504285": {
+    "ApiGatewayDeployment1597258350182": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -451,13 +453,13 @@
     "WebLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "WebLambdaVersionQ80VDGS2qA26qabSLEwkjkkVgYQL98um0ICDzS4"
+        "Ref": "WebLambdaVersionK7bAZfTuYkZrAopXw6aGTdQVlstcnOaS08Pev07g6U"
       }
     },
     "ArtisanLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "ArtisanLambdaVersionYgP5C57WDAiK7bu9IRHAm4JpolMwarZJWWR0dgcWQ"
+        "Ref": "ArtisanLambdaVersion6alKt4cFzXL9kxcYCzJadX6FpwcvByFocWiaRM7hXwc"
       }
     },
     "ServiceEndpoint": {

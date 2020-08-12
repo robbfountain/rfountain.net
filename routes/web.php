@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', [\App\Http\Controllers\SiteController::class, 'index'])
     ->name('home');
 
@@ -22,6 +21,6 @@ Route::get('blog', [\App\Http\Controllers\BlogController::class, 'index'])
 Route::get('blog/{slug}', [\App\Http\Controllers\BlogController::class, 'show'])
     ->name('blog.show');
 
-Route::view('home-lab', 'blog-post', [
-    'blog' => \Wink\WinkPage::where('slug', 'home-lab')->first(),
-])->name('home-lab');
+
+Route::get('{page}', [\App\Http\Controllers\PageController::class,'show'])
+    ->name('page.show');

@@ -6,16 +6,25 @@ use Illuminate\View\Component;
 
 class NavLink extends Component
 {
+    /**
+     * @var
+     */
     public $route;
+
+    /**
+     * @var bool|mixed
+     */
+    public $asPage = false;
 
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($route)
+    public function __construct($route, $asPage = false)
     {
         $this->route = $route;
+        $this->asPage = $asPage;
     }
 
     /**

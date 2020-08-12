@@ -1,6 +1,6 @@
 @props(['blog'])
 
-<article class="mx-auto mb-8 pb-8 border-b border-gray-800 prose dark:prose-dark lg:prose-xl">
+<article class="mb-8 pb-8 border-b border-gray-800 prose dark:prose-dark lg:prose-xl">
     <h2>
         <a class="text-3xl hover:underline transition ease-in-out duration-300 "
            href="{{route('blog.show',$blog->slug)}}">
@@ -8,7 +8,7 @@
         </a>
     </h2>
 
-    <div class="">
+    <div>
         <span>
             {{$blog->publish_date->format('M d, Y')}}
         </span>
@@ -22,7 +22,7 @@
 
     <div class="mt-3">
         <a href="{{route('blog.show', $blog->slug)}}"
-           class="text-indigo-500 hover:text-indigo-300 transition ease-in-out duration-300">
+           class="transition ease-in-out duration-300">
             Read the Post
             <i class="ml-2 fas fa-arrow-right"></i>
         </a>

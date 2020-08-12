@@ -8,6 +8,7 @@ provider:
   stage: dev
   runtime: provided
   environment:
+    APP_DEBUG: false
     DB_HOST: 'studios-rds.c0rrqknh2fu9.us-east-1.rds.amazonaws.com'
     DB_USERNAME: admin
     DB_PASSWORD: ${ssm:rfountain_db_password}

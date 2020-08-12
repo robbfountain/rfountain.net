@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    <section class="mt-20 container">
+    <x-section>
         @foreach($blogs as $blog)
-            <x-blog-list-item :blog="$blog" />
+            <x-blog-list-item :blog="$blog"/>
         @endforeach
-    </section>
+    </x-section>
 @endsection
