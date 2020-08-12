@@ -1,4 +1,4 @@
-<article class="mt-20 container mx-auto prose lg:prose-2xl dark:text-gray-100">
+<article class="mt-20 container mx-auto prose dark:prose-dark lg:prose-2xl">
     <div class="text-5xl font-bold leading-tight dark:text-gray-100">
         {{$blog->title}}
     </div>

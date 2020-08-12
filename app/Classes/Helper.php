@@ -4,14 +4,23 @@
 namespace App\Classes;
 
 
-use Illuminate\Support\Str;
-
 class Helper
 {
+    /**
+     *  Default words per minute read
+     */
+    const WORDS_PER_MINUTE = 200;
 
+    /**
+     * Calculates minutes to read article
+     *
+     * @param $content
+     *
+     * @return false|float
+     */
     public static function minutesToRead($content)
     {
-        return ceil(str_word_count($content) / 200);
+        return ceil(str_word_count($content) / self::WORDS_PER_MINUTE);
     }
 
 }

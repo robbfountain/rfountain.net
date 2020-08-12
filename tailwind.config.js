@@ -11,6 +11,51 @@ module.exports = {
                 dark: {raw: "(prefers-color-scheme: dark)"}
             }
         },
+        typography: (theme) => ({
+            dark: {
+                css: {
+                    color: theme('colors.gray.300'),
+                    a: {
+                        color: theme('colors.green.500'),
+                        '&:hover': {
+                            color: theme('colors.green.500'),
+                        },
+                    },
+
+                    h1: {
+                        color: theme('colors.gray.300'),
+                    },
+                    h2: {
+                        color: theme('colors.gray.300'),
+                    },
+                    h3: {
+                        color: theme('colors.gray.300'),
+                    },
+                    h4: {
+                        color: theme('colors.gray.300'),
+                    },
+                    h5: {
+                        color: theme('colors.gray.300'),
+                    },
+                    h6: {
+                        color: theme('colors.gray.300'),
+                    },
+
+                    strong: {
+                        color: theme('colors.gray.300'),
+                    },
+
+                    code: {
+                        color: theme('colors.gray.300'),
+                    },
+
+                    figcaption: {
+                        color: theme('colors.gray.500'),
+                    },
+                },
+            },
+        })
+
     },
     variants: {},
     purge: {
@@ -43,6 +88,17 @@ module.exports = {
                     body: {
                         color: config("theme.colors.gray.200"),
                         backgroundColor: config("theme.colors.gray.800")
+                    },
+                    h2: {
+                        color: config("theme.colors.gray.200")
+                    },
+                    ".prose": {
+                        h2: {
+                            color: config("theme.colors.gray.200")
+                        },
+                        h3: {
+                            color: config("theme.colors.gray.200")
+                        }
                     }
                 }
             });
