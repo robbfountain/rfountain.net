@@ -1,4 +1,4 @@
-<article class="mt-12 container mx-auto prose lg:prose-2xl dark:text-gray-100">
+<article class="mt-20 container mx-auto prose lg:prose-2xl dark:text-gray-100">
     <div class="text-5xl font-bold leading-tight dark:text-gray-100">
         {{$blog->title}}
     </div>
@@ -20,13 +20,13 @@
 
 @if($blog->author)
     <div class="prose prose-lg pb-12 max-w-4xl container mx-auto">
-        <div class="bg-gray-50 rounded-md p-2 flex border border-gray-200 ">
-            <div class="mr-6 w-1/5 text-center">
+        <div class="bg-gray-50 dark:bg-gray-800 rounded-md p-2 px-4 flex border border-gray-200 dark:border-gray-800 ">
+            <div class="mr-2 w-1/5 text-center">
                 <img src="{{$blog->author->avatar}}" class="h-32 w-32 rounded-full p-2 bg-white" alt="">
             </div>
             <div class="flex-1 pt-3">
-                <p class="text-lg mt-4 font-semibold underline">By {{$blog->author->name}}</p>
-                <div class="text-lg -mt-4">
+                <p class="dark:text-gray-100 text-lg mt-4 font-semibold underline">By {{$blog->author->name}}</p>
+                <div class="text-lg -mt-4 dark:text-gray-100">
                     {!! $blog->author->bio !!}
                 </div>
             </div>
