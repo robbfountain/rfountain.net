@@ -6,13 +6,9 @@
 
         @yield('meta')
 
-        @hasSection('title')
-            <title>@yield('title') - {{ config('app.name') }}</title>
-        @else
-            <title>{{ config('app.name') }}</title>
-    @endif
+        <title>{{ config('app.name') }}</title>
 
-    <!-- Favicon -->
+        <!-- Favicon -->
         <link rel="shortcut icon" href="{{ asset('favicon.ico')}}">
 
         <!-- Fonts -->
@@ -27,7 +23,7 @@
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script>
 
         <!-- Styles -->
-        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <link rel="stylesheet" href="{{ asset(mix('css/app.css')) }}">
         @livewireStyles
 
         <!-- CSRF Token -->
@@ -82,8 +78,7 @@
                                     <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
                                 </div>
 
-                                <div
-                                    x-show="avatar"
+                                <div x-show="avatar"
                                     x-cloak
                                     x-transition:enter="transition ease-out duration-300"
                                     x-transition:enter-start="opacity-0 transforn translate-y-4 sm:translate-y-0 sm:scale-95"
@@ -150,7 +145,9 @@
                 </div>
             </div>
 
-            <div x-show="mobileMenu" class="block lg:hidden bg-white dark:bg-gray-900" x-cloak>
+            <div x-show="mobileMenu"
+                 class="block lg:hidden bg-white dark:bg-gray-900"
+                 x-cloak>
                 <div class="pt-2 pb-3">
                     <a href="{{route('blog')}}"
                        class="mt-1 block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 dark:text-gray-100 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition duration-150 ease-in-out">
@@ -168,7 +165,7 @@
 
         @yield('body')
 
-        <script src="{{ asset('js/app.js') }}"></script>
+        <script src="{{ asset(mix('js/app.js')) }}"></script>
         @livewireScripts
 
         <script>

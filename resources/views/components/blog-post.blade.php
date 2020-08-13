@@ -19,10 +19,12 @@
 </article>
 
 @if($blog->author)
-    <div class="prose prose-lg pb-12 max-w-4xl container mx-auto">
+    <div class="prose sm:prose-sm prose-lg pb-12 max-w-4xl container mx-auto">
         <div class="bg-gray-50 dark:bg-gray-800 rounded-md p-2 px-4 flex border border-gray-200 dark:border-gray-800 ">
             <div class="mr-2 w-1/5 text-center">
-                <img src="{{$blog->author->avatar}}" class="h-32 w-32 rounded-full p-2 bg-white" alt="">
+                <img src="{{$blog->author->avatar}}"
+                     class="h-32 w-32 rounded-full p-2 bg-white"
+                     alt="{{$blog->author->name}}'s Avatar">
             </div>
             <div class="flex-1 pt-3">
                 <p class="dark:text-gray-100 text-lg mt-4 font-semibold underline">By {{$blog->author->name}}</p>
