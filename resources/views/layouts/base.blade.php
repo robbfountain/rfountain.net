@@ -62,10 +62,9 @@
                                  @click="avatar=true"
                                  @click.away="avatar=false">
                             <a href="{{route('home')}}"
-                               class="ml-3 text-gray-500 dark:text-gray-100 hover:text-gray-700 dark:hover:text-gray-300 text-sm font-medium leading-5 transition duration-300 ease-in-out">
+                               class="hidden lg:inline ml-3 text-gray-500 dark:text-gray-100 hover:text-gray-700 dark:hover:text-gray-300 text-sm font-medium leading-5 transition duration-300 ease-in-out">
                                 Robb Fountain
                             </a>
-
 
                             <div x-show="avatar"
                                  class="fixed bottom-0 inset-x-0 px-4 pb-6 sm:inset-0 sm:p-0 sm:flex sm:items-center sm:justify-center"
@@ -104,8 +103,6 @@
                                          alt="Robb Fountain">
                                 </div>
                             </div>
-
-
                         </div>
                         <div class="hidden lg:ml-6 lg:flex">
                             <x-nav-link route="blog">Blog</x-nav-link>
@@ -153,10 +150,18 @@
                 </div>
             </div>
 
-            <div x-show="mobileMenu" class="block lg:hidden" x-cloak>
+            <div x-show="mobileMenu" class="block lg:hidden bg-white dark:bg-gray-900" x-cloak>
                 <div class="pt-2 pb-3">
                     <a href="{{route('blog')}}"
-                       class="mt-1 block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition duration-150 ease-in-out">Team</a>
+                       class="mt-1 block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 dark:text-gray-100 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition duration-150 ease-in-out">
+                        Blog
+                    </a>
+                    @foreach(\Wink\WinkPage::all() as $page)
+                        <a href="{{route('page.show',$page->slug)}}"
+                           class="mt-1 block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 dark:text-gray-100 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition duration-150 ease-in-out">
+                            {{$page->title}}
+                        </a>
+                    @endforeach
                 </div>
             </div>
         </nav>
